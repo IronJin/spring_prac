@@ -2,15 +2,19 @@ package hello.hello_spring.service;
 
 import hello.hello_spring.domain.Member;
 import hello.hello_spring.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 //컨트롤 + 쉬프트 + T 를 눌러서 테스트를 생성해줄 수 있음
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
