@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 //컨트롤 + 쉬프트 + T 를 눌러서 테스트를 생성해줄 수 있음
-@Service
+
 public class MemberService {
 
     private final MemberRepository memberRepository;
