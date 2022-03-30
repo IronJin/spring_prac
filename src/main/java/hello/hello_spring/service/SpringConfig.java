@@ -1,12 +1,21 @@
 package hello.hello_spring.service;
 
+import hello.hello_spring.repository.JPAMemberRepository;
 import hello.hello_spring.repository.MemberRepository;
-import hello.hello_spring.repository.MemoryMemberRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
+
 @Configuration
 public class SpringConfig {
+
+
+    private final EntityManager em;
+
+    public SpringConfig(EntityManager em) {
+        this.em = em;
+    }
 
     @Bean
     public MemberService memberService(){
@@ -15,7 +24,9 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
+
+        //return new JdbcTemplateMemberRepository(dataSource);
+        return new JPAMemberRepository(em);
     }
 
 }
